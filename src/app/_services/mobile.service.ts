@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Cookie } from 'ng2-cookies';
 import { sha256 } from 'js-sha256';
-<<<<<<< HEAD
-=======
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { HttpClient } from '@angular/common/http';
->>>>>>> upstream/master
 
 @Injectable({
   providedIn: 'root',
