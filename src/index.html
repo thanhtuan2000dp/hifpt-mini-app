@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>HifptMiniApp</title>
@@ -7,7 +8,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
   <app-root></app-root>
+  <script type="text/javascript">
+    function initServices(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.initServices(data);
+      });
+    }
+
+    function resultPayment(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultPayment(data);
+      });
+    }
+
+    function resultPhoto(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultPhoto(data);
+      });
+    }
+
+    function resultLocation(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultLocation(data);
+      });
+    }
+
+    function resultIdentityCard(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultIdentityCard(data);
+      });
+    }
+
+    function resultAddress(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultAddress(data);
+      });
+    }
+
+    function resultPhoneBook(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultPhoneBook(data);
+      });
+    }
+
+    function resultShare(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultShare(data);
+      });
+    }
+
+    function resultIdentityDownload(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultIdentityDownload(data);
+      });
+    }
+
+    function resultBackDevice(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultBackDevice(data);
+      });
+    }
+
+    //Function App New
+    function resultAuthentication(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultAuthentication(data);
+      });
+    }
+
+    function resultUser(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultUser(data);
+      });
+    }
+
+    function resultDevice(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultDevice(data);
+      });
+    }
+
+    function resultGame(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultGame(data);
+      });
+    }
+
+    function resultFetchData(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultFetchData(data);
+      });
+    }
+
+    function resultSocket(data) {
+      window["componentRef"].zone.run(() => {
+        window["componentRef"].component.resultSocket(data);
+      });
+    }
+
+  </script>
 </body>
+
 </html>

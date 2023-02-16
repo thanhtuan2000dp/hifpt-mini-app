@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Cookie } from 'ng2-cookies';
 import { sha256 } from 'js-sha256';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +36,7 @@ export class MobileService {
   private emitLoyaltySubject = new BehaviorSubject<any>({});
   fptLoyaltyObservable$ = this.emitLoyaltySubject.asObservable();
 
-  constructor(private jwtHelper: JwtHelperService, private http: HttpClient) {}
+  constructor() {}
 
   packageMessage(data: any): any {
     this.emitPackageSubject.next(data);
