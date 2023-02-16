@@ -36,11 +36,7 @@ export class MobileService {
   private emitLoyaltySubject = new BehaviorSubject<any>({});
   fptLoyaltyObservable$ = this.emitLoyaltySubject.asObservable();
 
-<<<<<<< HEAD
   constructor() {}
-=======
-  constructor(private jwtHelper: JwtHelperService, private http: HttpClient) {}
->>>>>>> upstream/master
 
   packageMessage(data: any): any {
     this.emitPackageSubject.next(data);
