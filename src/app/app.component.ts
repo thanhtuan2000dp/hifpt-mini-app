@@ -1,4 +1,5 @@
 import { Component, NgZone } from '@angular/core';
+import { MobileService } from './_services/mobile.service';
 
 @Component({
   selector: 'app-root',
@@ -6,12 +7,25 @@ import { Component, NgZone } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  token = '';
-  constructor(private zone: NgZone) {
+  tokenHifpt = '';
+  constructor(private zone: NgZone, private mobileService: MobileService) {
+    this.mobileService.callTokenMiniApp();
+    // @ts-ignore
+    window.componentRef = {
+      zone: this.zone,
+      componentFn: (value: any) => this.initServices(value),
+      component: this,
+    };
     // @ts-ignore
     window.componentRef = {
       zone: this.zone,
       componentFn: (value: any) => this.resultAuthentication(value),
+      component: this,
+    };
+    // @ts-ignore
+    window.componentRef = {
+      zone: this.zone,
+      componentFn: (value: any) => this.resultDevice(value),
       component: this,
     };
   }
@@ -21,7 +35,20 @@ export class AppComponent {
     console.log(data);
     if (data) {
       sessionStorage.setItem('webkit-token-miniapp', data.data.token);
-      this.token = data.data.token;
+      this.tokenHifpt = 'auth' + data.data.token;
+    }
+  }
+
+  initServices(value: any): any {
+    this.tokenHifpt = 'init' + value;
+  }
+
+  resultDevice(value: any): any {
+    if (value) {
+      const data = JSON.parse(value);
+      if (data.action === 'viewAppear') {
+        window.alert(`Hệ thống thông báo: ${data}`);
+      }
     }
   }
 }
