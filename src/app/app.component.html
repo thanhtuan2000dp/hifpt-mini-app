@@ -1,3 +1,5 @@
 <div>
   <p>Test token: {{tokenHifpt}}</p>
+  <button (click)="getUser()">Get User Info:</button>
+  <p *ngIf="userInfo">UserInfo: {{userInfo|json}}</p>
 </div>
