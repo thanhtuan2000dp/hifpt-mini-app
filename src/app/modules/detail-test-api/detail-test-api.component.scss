@@ -1,0 +1,113 @@
+@media (max-width: 912px) {
+  .background-full {
+    background-size: cover;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100vw;
+    height: 100vh;
+    .content {
+      margin: auto;
+
+      @media only screen and (max-width: 375px) {
+        .background-full {
+          height: 120%;
+        }
+      }
+
+      @media only screen and (min-width: 375px) and (min-width: 912px) {
+        .background-full {
+          height: 100%;
+          padding: 10%;
+        }
+      }
+
+      .background-full {
+        background: #eff4ff;
+        margin: auto;
+
+        .back-button {
+          margin: 20px 0;
+          background-color: transparent;
+          border: none;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          font-weight: 600;
+          color: black;
+        }
+
+        .content-all {
+          height: 90vh;
+          overflow-y: auto;
+          margin: auto;
+
+          .content {
+            margin: auto;
+            padding: 3%;
+            background: #ffffff;
+            margin-bottom: 20px;
+            /* Shadow card */
+
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+
+            border: none;
+            overflow-y: scroll;
+
+            h4 {
+              font-size: 14px;
+              line-height: 20px;
+              color: #aaaaaa;
+            }
+
+            h3 {
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 24px;
+              color: #2f3954;
+            }
+
+            h2 {
+              font-size: 14px;
+              line-height: 140%;
+              color: #aaaaaa;
+              margin-bottom: 5%;
+            }
+
+            .title-content {
+              margin: auto;
+              padding: 3% 5% 0;
+
+              h4 {
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 140%;
+                color: #282828;
+              }
+
+              span {
+                font-size: 14px;
+                line-height: 140%;
+                color: #2f3954;
+              }
+            }
+          }
+
+          button {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            background-color: #4564ed;
+            color: #fff;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+
+    .bottom-content {
+      height: 10%;
+    }
+  }
+}

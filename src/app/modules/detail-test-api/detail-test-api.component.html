@@ -1,0 +1,327 @@
+<div class="background-full">
+  <div class="content" style="overflow-y: scroll">
+    <div class="background-Title"></div>
+    <div class="background-full">
+      <button (click)="backPage()" class="back-button">
+        <img src="https://hi-static.fpt.vn/sys/hifpt/pnc_pdx/portal_web/arrow-left.svg" alt="back-button" width="auto"
+          height="auto">
+        Quay lại
+      </button>
+      <div class="content-all">
+        <div class="content">Bạn đang ở trên thiết bị:
+          <span *ngIf="android">Đây là Android</span>
+          <span *ngIf="ios">Đây là IOS</span>
+          <span *ngIf="notmobile">Đây là sai</span>
+        </div>
+        <div *ngIf="title ==='Test Funtion Authentication'">
+          <div class="content">
+            <h3>Test chức năng action initMiniApp</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Authentication','initMiniApp')">
+              initMiniApp
+            </button>
+            <p>
+              Giá trị ResultAuthentication action miniAppToken:
+              <span *ngIf="dataMiniAppToken" style="margin-top: 10px">
+                {{ dataMiniAppToken | json }}
+              </span>
+            </p>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action refreshMiniToken</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Authentication','refreshMiniToken')">
+              refreshMiniToken
+            </button>
+            <p>
+              Giá trị ResultAuthentication action refreshMiniToken:
+              <span *ngIf="dataRefreshMiniToken" style="margin-top: 10px">
+                {{ dataRefreshMiniToken | json }}
+              </span>
+            </p>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action logout</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Authentication','logout')">
+              logout
+            </button>
+            <p>
+              Giá trị ResultAuthentication action logout:
+              <span *ngIf="dataLogout" style="margin-top: 10px">
+                {{ dataLogout | json }}
+              </span>
+            </p>
+          </div>
+
+        </div>
+        <div *ngIf="title ==='Test Funtion User'">
+          <hr>
+          <div class="content">
+            <h3>Test chức năng action userInfo</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('User','userInfo')">
+              userInfo
+            </button>
+            <p>
+              Giá trị ResultUser action userInfo:
+              <span *ngIf="dataUserInfo" style="margin-top: 10px">
+                {{ dataUserInfo | json }}
+              </span>
+            </p>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action contracts</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('User','contracts')">
+              contracts
+            </button>
+            <p>
+              Giá trị ResultUser action contracts:
+              <span *ngIf="dataContracts" style="margin-top: 10px">
+                {{ dataContracts | json }}
+              </span>
+            </p>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action address</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('User','address')">
+              address
+            </button>
+            <p>
+              Giá trị ResultUser action address:
+              <span *ngIf="dataAddress" style="margin-top: 10px">
+                {{ dataAddress | json }}
+              </span>
+            </p>
+          </div>
+
+        </div>
+        <div *ngIf="title ==='Test Funtion Device'">
+          <hr>
+          <div class="content">
+            <h3>Test chức năng action shake</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Device','shake')">
+              shake
+            </button>
+            <p>
+              Giá trị ResultDevice action shake:
+              <span *ngIf="dataShake" style="margin-top: 10px">
+                {{ dataShake | json }}
+              </span>
+            </p>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action location</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Device','location')">
+              location
+            </button>
+            <p>
+              Giá trị ResultDevice action location:
+              <span *ngIf="dataLocation" style="margin-top: 10px">
+                {{ dataLocation | json }}
+              </span>
+            </p>
+
+          </div>
+          <div class="content">
+            <h3>Test chức năng action photo</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Device','photo')">
+              photo
+            </button>
+
+            <p *ngIf="dataPhoto">
+              Giá trị ResultDevice action photo:
+              <br>
+              <img *ngIf="dataPhoto.data.imageBase64" [src]="
+                    'data:image/' + dataPhoto.data.imageType + ';base64,' + dataPhoto.data.imageBase64
+                      | safeResourceUrl
+                  " width="auto" height="auto" style="width: 100%" />
+            </p>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action contact</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Device','contact')">
+              contact
+            </button>
+            <p>
+              Giá trị ResultDevice action contact:
+              <span *ngIf="dataContact" style="margin-top: 10px">
+                {{ dataContact | json }}
+              </span>
+            </p>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action deviceInfo</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Device','deviceInfo')">
+              deviceInfo
+            </button>
+            <p>
+              Giá trị ResultDevice action contact:
+              <span *ngIf="dataDeviceInfo" style="margin-top: 10px">
+                {{ dataDeviceInfo | json }}
+              </span>
+            </p>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action ocr</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Device','ocr',1)">
+              ocr
+            </button>
+            <p *ngIf="dataOcr1">
+              Giá trị ResultDevice action ocr and type cmndAfter:
+              <span style="margin-top: 10px">
+                Có Data: {{dataOcr1.data.fullJson|json}}
+              </span>
+              <br>
+              <img *ngIf="dataOcr1.data.imageBase64" [src]="
+                    'data:image/' + dataOcr1.data.imageType + ';base64,' + dataOcr1.data.imageBase64
+                      | safeResourceUrl
+                  " width="auto" height="auto" style="width: 100%" />
+            </p>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action ocr</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Device','ocr',0)">
+              ocr
+            </button>
+
+            <p *ngIf="dataOcr2">
+              Giá trị ResultDevice action ocr and type cmndBefore:
+              <span style="margin-top: 10px">
+                Có Data: {{dataOcr2.data.fullJson|json}}
+              </span>
+              <br>
+              <img *ngIf="dataOcr2.data.imageBase64" [src]="
+                    'data:image/' + dataOcr2.data.imageType + ';base64,' + dataOcr2.data.imageBase64
+                      | safeResourceUrl
+                  " width="auto" height="auto" style="width: 100%" />
+            </p>
+          </div>
+
+        </div>
+        <div *ngIf="title ==='Test Funtion Navigation'">
+          <hr>
+          <div class="content">
+            <h3>Test chức năng action goHome</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Navigation','goHome')">
+              goHome
+            </button>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action goBack</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Navigation','goBack')">
+              goBack
+            </button>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action goToUrl</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Navigation','goToUrl')">
+              goToUrl
+            </button>
+          </div>
+          <div class="content">
+            <h3>Test chức năng action goToScreen</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Navigation','goToScreen')">
+              goToScreen
+            </button>
+          </div>
+
+        </div>
+        <div *ngIf="title ==='Test Funtion Utilities'">
+          <div class="content">
+            <h3>Test chức năng action address</h3>
+            <button class="btn btn-info" (click)="callFunctionApp('Utilities','shareApp')">
+              shareApp
+            </button>
+          </div>
+          <hr *ngIf="title ==='Test Funtion Utilities'">
+          <div *ngIf="title ==='Test Funtion Utilities'">
+            <div class="content">
+              <h3>Test chức năng action Sharecontent</h3>
+              <hr style="border: 1px solid #f5f5f5" />
+              <h4>File Url<span style="color: red">*</span></h4>
+              <button class="btn btn-secondary" (click)="callFunctionApp('Utilities','shareContent',0)">
+                Share Url
+              </button>
+              <h4>File Content<span style="color: red">*</span></h4>
+              <button class="btn btn-success" (click)="callFunctionApp('Utilities','shareContent',1)">
+                Share Content
+              </button>
+              <h4>File Image<span style="color: red">*</span></h4>
+              <input style="display: none" accept="image/*" (change)="handleInputChange($event)" id="fileCamera"
+                class="icon" type="file" #fileInput />
+              <button for="fileCamera" (click)="fileInput.click()" style="margin-bottom: 10px">
+                Tải ảnh lên
+              </button>
+              <button class="btn btn-secondary" *ngIf="imageIMEI === ''" disabled>
+                Share Image
+              </button>
+              <button class="btn btn-danger" (click)="callFunctionApp('Utilities','shareContent',2)"
+                *ngIf="imageIMEI !== ''">
+                Share Image
+              </button>
+            </div>
+            <div>
+
+              <div>
+
+              </div>
+            </div>
+            <div style="height: 100px">
+            </div>
+          </div>
+          <hr *ngIf="title ==='Test Funtion Utilities'">
+          <div class="content" style="margin-top: 10px" *ngIf="title ==='Test Funtion Utilities'">
+            <h3>Test chức năng download file</h3>
+            <hr style="border: 1px solid #f5f5f5" />
+            <h4>File PDF<span style="color: red">*</span></h4>
+            <button class="btn btn-secondary" (click)="callFunctionApp('Utilities','download',0)">
+              Download File PDF
+            </button>
+            <h4>File EXCEL<span style="color: red">*</span></h4>
+            <button class="btn btn-success" (click)="callFunctionApp('Utilities','download',1)">
+              Download File EXCEL
+            </button>
+            <h4>File PNG<span style="color: red">*</span></h4>
+            <button class="btn btn-danger" (click)="callFunctionApp('Utilities','download',2)">
+              Download File PNG
+            </button>
+            <h4>File JPG<span style="color: red">*</span></h4>
+            <button class="btn btn-warning" (click)="callFunctionApp('Utilities','download',3)">
+              Download File JPG
+            </button>
+          </div>
+        </div>
+        <div *ngIf="title ==='Test Funtion FetchData'">
+          <hr>
+          <div class="content">
+            <p *ngIf="dataMiniAppToken">{{dataMiniAppToken|json}}</p>
+            <h3>Test chức năng action HiFPT token</h3>
+            <!--            <button class="btn btn-info" (click)="callFunctionApp('FetchData','loyaltyInfo')">-->
+            <!--              loyaltyInfo-->
+            <!--            </button>-->
+            <button class="btn btn-warning" (click)="callFunctionApp('FetchData','getHiFPTToken')">
+              getHiFPTToken
+            </button>
+            <p *ngIf="tempJS">{{tempJS|json}}</p>
+            <p *ngIf="dataTokenHiFPT">{{dataTokenHiFPT| json}}</p>
+          </div>
+        </div>
+        <div *ngIf="title ==='Test Funtion Socket'">
+          <hr>
+          <div class="content">
+            <p *ngIf="dataNotFormat">Data ban đầu: {{dataNotFormat}}</p>
+            <p *ngIf="dataSocket">Data format: {{dataSocket|json}}</p>
+            <p *ngIf="testAction">Action: {{testAction}}</p>
+          </div>
+        </div>
+        <div *ngIf="title ==='Test Funtion Payment'">
+          <hr>
+          <div class="content">
+            <button class="btn btn-success" (click)="callFunctionApp('Payment','ecom')">
+              get Payment
+            </button>
+            <p *ngIf="dataPayment">Data: {{dataPayment|json}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
