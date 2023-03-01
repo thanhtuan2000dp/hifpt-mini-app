@@ -153,10 +153,10 @@ export class MobileService {
     }
   }
 
-  callTokenMiniApp(): any {
+  callTokenMiniApp(clientId: string): any {
     const dataPost = {
       action: 'initMiniApp',
-      data: { clientId: 'evuQ6oiD11B1X5xAgI6r8QLEuFOeVj2j' },
+      data: { clientId },
     };
     // @ts-ignore
     if (window.AndroidBridge) {

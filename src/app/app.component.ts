@@ -1,6 +1,8 @@
 import { Component, NgZone } from '@angular/core';
 import { MobileService } from './_services/mobile.service';
 
+const CLIENT_ID: string = 'evuQ6oiD11B1X5xAgI6r8QLEuFOeVj2j';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +12,7 @@ export class AppComponent {
   tokenHifpt = '';
   userInfo: any;
   constructor(private zone: NgZone, private mobileService: MobileService) {
-    this.mobileService.callTokenMiniApp();
+    this.mobileService.callTokenMiniApp(CLIENT_ID);
     // @ts-ignore
     window.componentRef = {
       zone: this.zone,
